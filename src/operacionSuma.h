@@ -8,11 +8,9 @@
 
 using namespace std;
 class OperacionSuma: public Operacion {
-    ProveedorFormato *proveedorFormato;
-    //std::vector<Empleado *> empleados;
 
     public:
-    OperacionSuma(ProveedorFormato *proveedorFormato);
+    OperacionSuma();
 
     virtual string Ejecute(string valor);
 

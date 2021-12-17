@@ -5,8 +5,8 @@
 
 using namespace std;
 
-OperacionSuma::OperacionSuma(ProveedorFormato *proveedorFormato) {
-    this->proveedorFormato = proveedorFormato;
+OperacionSuma::OperacionSuma() {
+    
 }
 
 string OperacionSuma::Ejecute(string valor) {
@@ -16,9 +16,9 @@ string OperacionSuma::Ejecute(string valor) {
     char plussign; //char that stores the + sign
     int num2;      //int where the second number's stored
     
-    ss << valor;  
+    ss << valor;   //input string is copied into stringstream
     
-    ss >> num;
+    ss >> num;     //values are stored into their respective variables one by one
     ss>>plussign;  
     ss >> num2;
 
@@ -26,5 +26,5 @@ string OperacionSuma::Ejecute(string valor) {
     int result=num+num2; //int containing the result
 
     valor= std::to_string(result); //result converted to string and copied to string valor
-    return proveedorFormato->ObtenerFormato() + valor;
+    return valor;
 }

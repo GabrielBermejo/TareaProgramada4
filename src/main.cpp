@@ -1,8 +1,7 @@
-#ifndef UNIT_TEST
-
 #include "procesadorInstrucciones.h"
 #include "identificadorOperaciones.h"
 #include "operacionHola.h"
+#include "operacionSuma.h"
 
 #include <iostream>
 #include <string>
@@ -33,14 +32,19 @@ int main() {
         OperacionHola *operacionHola = new OperacionHola(proveedorFormato);
         operaciones.insert(std::pair<string, Operacion *>("hola", operacionHola));
 
+        OperacionSuma *operacionSuma = new OperacionSuma(proveedorFormato);
+        operaciones.insert(std::pair<string, Operacion *>("suma", operacionSuma));
+
         IdentificadorOperacionesBase *identificadorOperaciones = new IdentificadorOperaciones(operaciones);
         // Fin de inicialización 
         
         ProcesadorInstrucciones *procesador = new ProcesadorInstrucciones(identificadorOperaciones);
         string resultado = procesador->Procese("hola", "todos");
-
+        
         cout << "Resultado: " << resultado << endl;
 
+        resultado = procesador->Procese("suma", "913 + 420");
+        cout << "Resultado: " << resultado << endl;
         // Cerrar archivo de entrada
         ifs.close();
 
@@ -52,4 +56,3 @@ int main() {
     return 0;
 }
 
-#endif
